@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:id="@+id/menu_layout_"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible">
+
+        <com.ogaclejapan.arclayout.ArcLayout
+            android:id="@+id/arc_menu_"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:arc_origin = "bottom"
+            app:arc_radius="160dp"
+            app:arc_axisRadius="140dp"
+            app:arc_freeAngle="false"
+            app:arc_reverseAngle="false">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/menu_sub_button_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fabSize="mini"
+                app:backgroundTint="#fff"
+                android:src="@drawable/icon_all"
+                app:arc_origin="center" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/menu_sub_button_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fabSize="mini"
+                app:backgroundTint="#fff"
+                android:src="@drawable/icon_all"
+                app:arc_origin="center"/>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/menu_sub_button_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fabSize="mini"
+                app:backgroundTint="#fff"
+                android:src="@drawable/icon_all"
+                app:arc_origin="center" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/menu_sub_button_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fabSize="mini"
+                app:backgroundTint="#fff"
+                android:src="@drawable/icon_all"
+                app:arc_origin="center"/>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/menu_sub_button_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fabSize="mini"
+                android:src="@drawable/icon_all"
+                app:backgroundTint="#fff"
+                app:arc_origin="center" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/menu_sub_button_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fabSize="mini"
+                app:backgroundTint="#fff"
+                android:src="@drawable/icon_all"
+                app:arc_origin="center"/>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/menu_sub_button_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fabSize="mini"
+                app:backgroundTint="#fff"
+                android:src="@drawable/icon_all"
+                app:arc_origin="center" />
+        </com.ogaclejapan.arclayout.ArcLayout>
+
+    </FrameLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/menu_button_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cross"
+        app:backgroundTint="#fff"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/cross"
+        android:layout_marginBottom="@dimen/button_border_margin"/>
+</RelativeLayout>

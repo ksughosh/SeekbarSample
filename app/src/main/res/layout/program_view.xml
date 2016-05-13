@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/menu_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:layout_centerInParent="true">
+
+        <com.ogaclejapan.arclayout.ArcLayout
+            android:id="@+id/arc_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:arc_origin = "center"
+            app:arc_radius="150dp"
+            app:arc_axisRadius="120dp"
+            app:arc_freeAngle="true"
+            app:arc_reverseAngle="true">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/menu_sub_button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fabSize="mini"
+                android:src="@drawable/icon_all"
+                app:backgroundTint="#fff"
+                app:arc_angle = "-135" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/menu_sub_button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_all"
+                app:fabSize="mini"
+                app:backgroundTint="#fff"
+                app:arc_angle = "-90"/>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/menu_sub_button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_all"
+                app:fabSize="mini"
+                app:backgroundTint="#fff"
+                app:arc_angle = "-45" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/menu_sub_button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_all"
+                app:fabSize="mini"
+                app:backgroundTint="#fff"
+                app:arc_angle = "0"/>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/menu_sub_button5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_all"
+                app:fabSize="mini"
+                app:backgroundTint="#fff"
+                app:arc_angle = "45" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/menu_sub_button6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_all"
+                app:fabSize="mini"
+                app:backgroundTint="#fff"
+                app:arc_angle = "90"/>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/menu_sub_button7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_all"
+                app:fabSize="mini"
+                app:backgroundTint="#fff"
+                app:arc_angle = "135" />
+        </com.ogaclejapan.arclayout.ArcLayout>
+
+    </FrameLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/menu_button"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cross"
+        android:layout_centerInParent="true"
+        app:backgroundTint="#fff"/>
+
+</RelativeLayout>

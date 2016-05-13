@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app_button="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="false">
+
+    <com.sughoshkumar.looptest.CircularSeekBar
+        android:id="@+id/circular_seek"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:padding="60dp"
+        android:focusableInTouchMode="false"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:fontFamily="sans-serif-light"
+        android:textSize="40sp"
+        android:id="@+id/textView"
+        android:layout_marginTop="158dp"
+        android:layout_alignTop="@+id/circular_seek"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/circular_seek"
+        android:layout_marginTop="@dimen/button_border_margin">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/button_border_margin">
+
+            <android.support.design.widget.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app_button:backgroundTint="#fff"
+                android:id="@+id/floating_button_left"
+                android:src="@drawable/eco_button"
+                android:focusableInTouchMode="false"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-light"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Eco"
+                android:layout_below="@+id/floating_button_left"
+                android:layout_centerInParent="true"
+                android:id="@+id/button_text_left"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/center"
+            android:layout_centerHorizontal="true">
+
+            <android.support.design.widget.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app_button:backgroundTint="#fff"
+                android:id="@+id/floating_button_center"
+                android:src="@drawable/eco_normal"
+                android:focusableInTouchMode="false"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-light"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Sinking"
+                android:id="@+id/button_text_center"
+                android:layout_below="@+id/floating_button_center"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/button_border_margin">
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app_button:backgroundTint="#fff"
+            android:id="@+id/floating_button_right"
+            android:src="@drawable/comfort_button"
+            android:focusableInTouchMode="false"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Comfort"
+            android:layout_below="@+id/floating_button_right"
+            android:layout_centerInParent="true"
+            android:id="@+id/button_text_right"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>
