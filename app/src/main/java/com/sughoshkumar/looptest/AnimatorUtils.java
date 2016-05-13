@@ -3,7 +3,7 @@ package com.sughoshkumar.looptest;
 import android.animation.PropertyValuesHolder;
 
 /**
- * Utility class for animation
+ * Utility class for animations
  * Created by Sughosh Krishna Kumar on 13/05/2016
  */
 public class AnimatorUtils {
