@@ -4,7 +4,6 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AnticipateInterpolator;
 import android.view.animation.OvershootInterpolator;
 
@@ -27,10 +27,11 @@ import java.util.List;
  * Created by Sughosh Krishna Kumar on 13/05/16.
  */
 public class ProgramFragment extends Fragment implements View.OnClickListener {
-    FloatingActionButton menuButton;
-    ArcLayout arcLayout;
-    View menuLayout;
+    private FloatingActionButton menuButton;
+    private ArcLayout arcLayout;
+    private View menuLayout;
     boolean show;
+    private boolean mIsFinishedLastAnimating, mIsFinishedFirstAnimating;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -46,6 +47,7 @@ public class ProgramFragment extends Fragment implements View.OnClickListener {
         arcLayout = (ArcLayout) view.findViewById(R.id.arc_menu);
         menuLayout = view.findViewById(R.id.menu_layout);
         show = false;
+        mIsFinishedLastAnimating = mIsFinishedFirstAnimating = false;
         return view;
     }
 
@@ -59,8 +61,9 @@ public class ProgramFragment extends Fragment implements View.OnClickListener {
             arcLayout.getChildAt(i).setOnClickListener(this);
         }
         menuButton.setOnClickListener(this);
-        menuButton.callOnClick();
+//        menuButton.callOnClick();
     }
+
 
     @Override
     public void onClick(View view){
@@ -88,7 +91,6 @@ public class ProgramFragment extends Fragment implements View.OnClickListener {
         else {
             show = false;
             hideMenu();
-            getFragmentManager().popBackStack("main", 0);
         }
     }
 
@@ -104,7 +106,7 @@ public class ProgramFragment extends Fragment implements View.OnClickListener {
                 rotation(135.0f)
                 .withLayer()
                 .setDuration(100)
-                .setInterpolator(new OvershootInterpolator(10.0f))
+                .setInterpolator(new AccelerateDecelerateInterpolator())
                 .start();
 
         for (int i = 0, len = arcLayout.getChildCount(); i < len; i++) {
@@ -112,9 +114,21 @@ public class ProgramFragment extends Fragment implements View.OnClickListener {
         }
 
         AnimatorSet animSet = new AnimatorSet();
-        animSet.setDuration(100);
-        animSet.setInterpolator(new AnticipateInterpolator());
+        animSet.setDuration(80);
+        animSet.setInterpolator(new OvershootInterpolator(0));
         animSet.playSequentially(animList);
+        animSet.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+            }
+
+            @Override
+            public void onAnimationStart(Animator animation) {
+                super.onAnimationStart(animation);
+                mIsFinishedFirstAnimating = true;
+            }
+        });
         animSet.start();
     }
 
@@ -159,7 +173,7 @@ public class ProgramFragment extends Fragment implements View.OnClickListener {
                 .start();
 
         AnimatorSet animSet = new AnimatorSet();
-        animSet.setDuration(600);
+        animSet.setDuration(400);
         animSet.setInterpolator(new AnticipateInterpolator());
         animSet.playTogether(animList);
         animSet.addListener(new AnimatorListenerAdapter() {
@@ -167,6 +181,7 @@ public class ProgramFragment extends Fragment implements View.OnClickListener {
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
                 menuLayout.setVisibility(View.INVISIBLE);
+                getFragmentManager().popBackStack("main", 0);
             }
         });
         animSet.start();

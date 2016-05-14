@@ -61,7 +61,7 @@
             android:layout_centerHorizontal="true">
 
             <android.support.design.widget.FloatingActionButton
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 app_button:backgroundTint="#fff"
                 android:id="@+id/floating_button_center"
@@ -73,11 +73,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-light"
+                android:textAlignment="center"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="Sinking"
                 android:id="@+id/button_text_center"
                 android:layout_below="@+id/floating_button_center"
-                android:layout_centerInParent="true" />
+                android:layout_centerHorizontal="true" />
         </RelativeLayout>
 
         <RelativeLayout

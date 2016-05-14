@@ -1,19 +1,14 @@
 package com.sughoshkumar.looptest;
 
-import android.animation.Animator;
-import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.widget.TextView;
 
 /**
@@ -22,13 +17,11 @@ import android.widget.TextView;
  */
 public class MainFragment extends Fragment {
     private final static String TAG = "MAIN";
-    private TextView buttonTextOne;
     private FloatingActionButton floatingButtonOne;
 
-    private TextView buttonTextTwo;
     private FloatingActionButton floatingButtonTwo;
 
-    private TextView buttonTextThree;
+    private TextView buttonTextTwo;
     private FloatingActionButton floatingButtonThree;
 
     private TextView seekBarValue;
@@ -53,13 +46,11 @@ public class MainFragment extends Fragment {
         // initialize circular seek bar
         mCircularSeekBar = (CircularSeekBar) view.findViewById(R.id.circular_seek);
 
-        buttonTextOne = (TextView) view.findViewById(R.id.button_text_left);
         floatingButtonOne = (FloatingActionButton) view.findViewById(R.id.floating_button_left);
 
         buttonTextTwo = (TextView) view.findViewById(R.id.button_text_center);
         floatingButtonTwo = (FloatingActionButton) view.findViewById(R.id.floating_button_center);
 
-        buttonTextThree = (TextView) view.findViewById(R.id.button_text_right);
         floatingButtonThree = (FloatingActionButton) view.findViewById(R.id.floating_button_right);
 
 
@@ -130,6 +121,11 @@ public class MainFragment extends Fragment {
                     floatingButtonThree.setImageResource(R.drawable.comfort_pressed);
                     floatingButtonOne.setImageResource(R.drawable.eco_normal);
                     mComfortButtonClicked = true;
+                }
+                else{
+                    floatingButtonOne.setImageResource(R.drawable.eco_normal);
+                    floatingButtonThree.setImageResource(R.drawable.eco_normal);
+                    mComfortButtonClicked = mEcoClicked = false;
                 }
                 progressValue = progress;
             }
@@ -218,6 +214,7 @@ public class MainFragment extends Fragment {
         if (mComfortButtonClicked){
             floatingButtonThree.setImageResource(R.drawable.eco_normal
             );
+            buttonTextTwo.setText("Sinking");
             mComfortButtonClicked = false;
             mCircularSeekBar.setProgress(15);
             return;
@@ -227,7 +224,6 @@ public class MainFragment extends Fragment {
                 .replace(R.id.fragment_layout, program)
                 .addToBackStack(null)
                 .commit();
-        floatingButtonTwo.clearFocus();
     }
 
     /**
@@ -239,10 +235,11 @@ public class MainFragment extends Fragment {
             floatingButtonThree.setImageResource(R.drawable.comfort_pressed);
             floatingButtonOne.setImageResource(R.drawable.eco_normal);
             mCircularSeekBar.setProgress(23);
+            buttonTextTwo.setText("Reduce\nMode");
             mComfortButtonClicked = true;
-        }
-        else{
+        } else {
             floatingButtonThree.setImageResource(R.drawable.eco_normal);
+            buttonTextTwo.setText("Sinking");
             mComfortButtonClicked = false;
             mCircularSeekBar.setProgress(15);
         }

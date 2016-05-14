@@ -14,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AnticipateInterpolator;
 import android.view.animation.OvershootInterpolator;
 
 import com.ogaclejapan.arclayout.ArcLayout;
@@ -24,7 +23,7 @@ import java.util.List;
 
 /**
  * Program fragment that displays the primary program view
- * Created by sughoshkumar on 13/05/16.
+ * Created by Sughosh Krishna Kumar on 13/05/16.
  */
 public class SubProgramFragment extends Fragment implements View.OnClickListener{
 
@@ -46,7 +45,6 @@ public class SubProgramFragment extends Fragment implements View.OnClickListener
         }
 
         menuButton.setOnClickListener(this);
-        menuButton.callOnClick();
     }
 
     @Nullable
@@ -55,6 +53,7 @@ public class SubProgramFragment extends Fragment implements View.OnClickListener
         View view = inflater.inflate(R.layout.sinking_view, container, false);
         return view;
     }
+
 
     @Override
     public void onClick(View view) {
@@ -82,7 +81,6 @@ public class SubProgramFragment extends Fragment implements View.OnClickListener
         else {
             show = false;
             hideMenu();
-            getFragmentManager().popBackStack("main", 0);
         }
     }
 
@@ -103,6 +101,7 @@ public class SubProgramFragment extends Fragment implements View.OnClickListener
         for (int i = 0, len = arcLayout.getChildCount(); i < len; i++) {
             animList.add(createShowItemAnimator(arcLayout.getChildAt(i)));
         }
+
 
         AnimatorSet animSet = new AnimatorSet();
         animSet.setDuration(80);
@@ -161,6 +160,7 @@ public class SubProgramFragment extends Fragment implements View.OnClickListener
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
                 menuLayout.setVisibility(View.INVISIBLE);
+                getFragmentManager().popBackStack("main", 0);
             }
         });
         animSet.start();
